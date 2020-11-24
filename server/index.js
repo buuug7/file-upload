@@ -18,8 +18,7 @@ const app = express();
 app.use(cors());
 
 app.post("/files", upload.array("files[]"), (req, res, next) => {
-  console.log(req.files);
-  return res.send(req.files.map((f) => f.path).join(","));
+  return res.json(req.files);
 });
 
 const port = 3000;
